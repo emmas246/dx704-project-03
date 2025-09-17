@@ -1,0 +1,45 @@
+I used the following sources while completing this project: 
+
+Article on Regret Analysis for Thompson Sampling: https://proceedings.mlr.press/v37/komiyama15.pdf.
+
+Video on Thompson Sampling: https://www.youtube.com/watch?v=D8bofQKCUls.
+
+Additionally, I used Generative AI, specifically ChatGPT, to clarify the topic of Bandit use cases in the following way: 
+
+Prompt: "Explain the specific use cases for epsilon-greedy, UCB, Thompson's Sampling, and simple greedy"
+
+GenAI Response: "Sure! Here's a clear rundown of when and why you’d use epsilon-greedy, UCB (Upper Confidence Bound), Thompson Sampling, and simple greedy strategies, mostly in the context of multi-armed bandit problems or reinforcement learning:
+
+1. Epsilon-Greedy
+What it does: Mostly exploits the best-known action but occasionally explores randomly with probability ε (epsilon).
+Use Cases: Simple and effective baseline: Good when you want a straightforward balance of exploration and exploitation without complex math.
+Non-stationary environments: The random exploration helps discover changes over time.
+When computational simplicity matters: Easy to implement and fast.
+Situations with moderate exploration need: If you want to ensure every option has some chance to be tried
+Limitations: Exploration is uniform random — not always efficient or directed toward promising options. ε must be tuned carefully.
+
+2. UCB (Upper Confidence Bound)
+What it does: Chooses actions based on the highest upper confidence bound on estimated rewards, naturally balancing exploration (less tried options get higher uncertainty bonuses) and exploitation.
+Use Cases: When uncertainty quantification is important: UCB explicitly uses uncertainty to decide.
+Stationary problems: Performs well when reward distributions don’t change.
+Limited exploration budget: More efficient exploration than epsilon-greedy by focusing on uncertain options.
+Applications needing theoretical guarantees: UCB has strong regret bounds and is popular in research.
+Limitations: Can be computationally heavier (needs confidence interval calculations). Assumes reward distributions are somewhat known or estimable.
+
+3. Thompson Sampling
+What it does: Samples from the posterior distribution of rewards for each action and selects the action with the highest sampled reward — a Bayesian approach to balancing exploration and exploitation.
+Use Cases: Bayesian settings: When you can model priors and update posteriors.
+Efficient exploration: Naturally balances exploration/exploitation with probabilistic reasoning.
+Non-stationary or complex reward distributions: Adaptable with suitable priors.
+Good empirical performance: Often outperforms epsilon-greedy and UCB in practice.
+When uncertainty in reward estimates is well modeled.
+Limitations: Requires maintaining and updating posterior distributions, which can be complex.Needs a good prior to start with.
+
+4. Simple Greedy
+What it does: Always picks the action with the highest estimated reward — pure exploitation, no exploration.
+Use Cases: Fully known environments: When you are confident your estimates are accurate.
+Short horizons or low risk: When the cost of exploration is high.
+Baseline or warm-start: Sometimes used after a sufficient initial exploration phase.
+Deterministic or static problems: Where rewards don’t change.
+Limitations: Can get stuck in suboptimal solutions due to lack of exploration. Not suitable for unknown or changing environments."
+

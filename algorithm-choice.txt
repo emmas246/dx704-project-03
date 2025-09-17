@@ -1,0 +1,6 @@
+From the histogram generated in Part 1, I decided to go with Thompsom Sampling. All 3 arms perform 
+similarly within the same range. Each arm has a range of reward from 0 to ~4 with a peak in frequency at 0. 
+While Arm 2 has a slightly higher maximum reward at 5, there is not a clear dominant arm with better rewards which 
+eliminates the use of epsilon-greedy. The arms do not have tight distributions and they overlap which proves simple greedy
+is not the best fit. This leaves UCB and Thompson Sampling. Ultimately, I decided Thompson Sampling was a better fit 
+due to the skewed, non-gaussian distribution which can be challenging for UCB to distinguish. 
